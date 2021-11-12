@@ -1,5 +1,4 @@
 const { Thought } = require('../models');
-const { db } = require('../models/Thought');
 
 const thoughtController = {
     // get all thoughts
