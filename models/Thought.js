@@ -3,17 +3,25 @@ const { Schema, model } = require('mongoose');
 
 const ThoughtSchema = new Schema({
     thoughtText: {
-        type: String
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 280
     },
     createdAt: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
     username: {
         type: String,
+        required: true
     },
     reactions: []
 })
+
+function format(createdAt) {
+
+}
 
 const Thought = model('Thought', ThoughtSchema);
 
