@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const User = require('../models/User');
 
 const userController = {
     // get all users
@@ -36,7 +36,7 @@ const userController = {
 
     // update user by id
     updateUser({ params, body }, res) {
-        Pizza.findOneAndUpdate({ _id: params.id }, body, { new: true})
+        User.findOneAndUpdate({ _id: params.id }, body, { new: true})
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id' });
@@ -55,7 +55,7 @@ const userController = {
                     res.status(404).json({ message: 'No user found with this id '});
                     return;
                 }
-                res.json(dbPizzaData);
+                res.json(dbUserData);
             })
             .catch(err => res.status(400).json(err));
     }
