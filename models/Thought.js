@@ -12,10 +12,10 @@ const ThoughtSchema = new Schema({
         type: Date,
         default: Date.now,
     },
-    username: {
-        type: String,
-        required: true
-    },
+    // username: {
+    //     type: String,
+    //     required: true
+    // },
     reactions: []
 })
 
