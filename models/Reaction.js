@@ -1,9 +1,9 @@
 
-const { Schema, model, Mongoose } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const ReactionSchema = new Schema({
     reactionId:{
-        type: Mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         default: function() { return new ObjectId() }
     },
     reactionBody: {
@@ -21,3 +21,7 @@ const ReactionSchema = new Schema({
         //use a getter method to format the timestamp on query
     }
 })
+
+const Reaction = model('Reaction', ReactionSchema);
+
+module.exports =  Reaction;
